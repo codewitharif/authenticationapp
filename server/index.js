@@ -11,6 +11,7 @@ app.use(require("./router/auth"));
 app.use(
   cors({
     origin: [
+      "https://authenticationappz.vercel.app",
       "https://authenticationapp-un6a.vercel.app",
       "https://authenticationappz.netlify.app",
     ],
