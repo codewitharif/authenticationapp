@@ -10,11 +10,7 @@ app.use(cookieParser());
 app.use(require("./router/auth"));
 app.use(
   cors({
-    origin: [
-      "https://authenticationapp-un6a.vercel.app",
-      "https://authenticationappz.netlify.app",
-      "*",
-    ],
+    origin: ["https://authenticationapp-un6a.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true,
   })
