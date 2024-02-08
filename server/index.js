@@ -7,7 +7,6 @@ const cookieParser = require("cookie-parser");
 
 dotenv.config({ path: "./config.env" });
 app.use(cookieParser());
-app.use(express.json());
 app.use(require("./router/auth"));
 app.use(
   cors({
@@ -20,6 +19,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.json());
 
 const PORT = process.env.PORT;
 
