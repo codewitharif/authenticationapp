@@ -14,6 +14,7 @@ app.use(
     origin: [
       "https://authenticationapp-un6a.vercel.app",
       "https://authenticationappz.netlify.app",
+      "*",
     ],
     methods: ["GET", "POST"],
     credentials: true,
