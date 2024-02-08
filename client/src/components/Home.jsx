@@ -9,7 +9,7 @@ const Home = () => {
 
   const userContact = async () => {
     try {
-      const res = await fetch("http://localhost:5000/home", {
+      const res = await fetch("https://authenticationapp-two.vercel.app/home", {
         method: "GET",
         headers: {
           Accept: "application/json",

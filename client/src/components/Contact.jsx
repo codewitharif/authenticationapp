@@ -14,15 +14,18 @@ const Contact = () => {
   const userContact = async () => {
     try {
       //console.log("entering try bock");
-      const res = await fetch("http://localhost:5000/contactdata", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://authenticationapp-two.vercel.app/contactdata",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       //console.log(data);
@@ -57,16 +60,19 @@ const Contact = () => {
       e.preventDefault();
 
       const { name, email, phone, message } = userData;
-      const res = await fetch("http://localhost:5000/contact", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        credentials: "include",
-        body: JSON.stringify({ name, email, phone, message }),
-      });
+      const res = await fetch(
+        "https://authenticationapp-two.vercel.app/contact",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          credentials: "include",
+          body: JSON.stringify({ name, email, phone, message }),
+        }
+      );
 
       const data = await res.json();
       //console.log(data);

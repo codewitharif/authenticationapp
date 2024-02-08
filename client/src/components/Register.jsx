@@ -25,13 +25,23 @@ const Register = () => {
     e.preventDefault();
     const { name, email, phone, work, password, cpassword } = user;
     try {
-      const res = await fetch("http://localhost:5000/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, phone, work, password, cpassword }),
-      });
+      const res = await fetch(
+        "https://authenticationapp-two.vercel.app/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            work,
+            password,
+            cpassword,
+          }),
+        }
+      );
       const data = await res.json();
       //console.log(data);
       if (res.status === 422 || !data) {
