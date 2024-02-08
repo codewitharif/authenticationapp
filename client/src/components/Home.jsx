@@ -20,7 +20,7 @@ const Home = () => {
       });
 
       const data = await res.json();
-      //console.log("my data is ", data.status);
+      console.log("my data is ", data.status);
 
       if (data.status === 401) {
         setShow(false); // handle unauthorized case
