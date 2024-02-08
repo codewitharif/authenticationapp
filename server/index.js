@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(require("./router/auth"));
 app.use(
   cors({
+    origin: ["https://authenticationapp-un6a.vercel.app"],
+    methods: ["GET", "POST"],
     credentials: true,
   })
 );
