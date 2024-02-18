@@ -13,10 +13,7 @@ app.use(require("./router/auth"));
 
 app.use(
   cors({
-    origin: [
-      "https://authenticationappz.vercel.app",
-      "https://authenticationapp-un6a.vercel.app",
-    ],
+    origin: ["https://authenticationappz.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true,
   })
