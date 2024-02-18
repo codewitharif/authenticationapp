@@ -5,10 +5,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
 
-router.get("/", (req, res) => {
-  res.status(200).json("server is running");
-});
-
 router.post("/register", async (req, res) => {
   const { name, email, phone, work, password, cpassword } = req.body;
   //console.log(req.body);

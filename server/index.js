@@ -1,26 +1,26 @@
 const express = require("express");
-const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./db/dbConnection");
 const cookieParser = require("cookie-parser");
-
 dotenv.config({ path: "./config.env" });
+
+const app = express();
+app.use(express.json());
 app.use(cookieParser());
+
 app.use(require("./router/auth"));
+
 app.use(
   cors({
     origin: [
       "https://authenticationappz.vercel.app",
       "https://authenticationapp-un6a.vercel.app",
-      "https://authenticationappz.netlify.app",
-      "http://localhost:5173",
     ],
     methods: ["GET", "POST"],
     credentials: true,
   })
 );
-app.use(express.json());
 
 const PORT = process.env.PORT;
 
