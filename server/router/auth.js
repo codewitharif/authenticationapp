@@ -4,9 +4,6 @@ const User = require("../model/userSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
-const cookieParser = require("cookie-parser");
-
-router.use(cookieParser());
 
 router.get("/", (req, res) => {
   res.status(200).json("server is running");
