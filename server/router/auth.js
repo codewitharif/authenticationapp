@@ -75,7 +75,7 @@ router.post("/login", async (req, res) => {
 
       if (isMatch) {
         const token = await userLogin.generateAuthToken();
-        //console.log("my generated token is ", token);
+        console.log("my generated token is ", token);
 
         res.cookie("jwtoken", token, {
           expires: new Date(Date.now() + 25892000000),
@@ -86,7 +86,7 @@ router.post("/login", async (req, res) => {
           userLogin,
           token,
         };
-        //console.log("login successfully");
+        console.log("login successfully");
         return res.status(200).json({ status: 200, result });
       } else {
         res.status(401).json({ message: "invalid credentials" });

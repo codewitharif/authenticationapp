@@ -14,6 +14,7 @@ app.use(
       "https://authenticationappz.vercel.app",
       "https://authenticationapp-un6a.vercel.app",
       "https://authenticationappz.netlify.app",
+      "http://localhost:5173",
     ],
     methods: ["GET", "POST"],
     credentials: true,
@@ -23,7 +24,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT;
 
-//connectDB();
+connectDB();
 
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
