@@ -5,26 +5,26 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
 const connectDB = require("../db/dbConnection");
-const cors = require("cors");
+//const cors = require("cors");
 const cookieParser = require("cookie-parser");
-//console.log(connectDB);
+// //console.log(connectDB);
 
-router.use(express.json());
+// router.use(express.json());
+// // router.use(
+// //   cors("http://localhost:5174", {
+// //     origin: true,
+// //     methods: ["POST", "GET"],
+// //     credentials: true,
+// //   })
+// // );
+
 // router.use(
-//   cors("http://localhost:5174", {
-//     origin: true,
+//   cors({
+//     origin: ["http://localhost:5173"],
 //     methods: ["POST", "GET"],
 //     credentials: true,
 //   })
 // );
-
-router.use(
-  cors({
-    origin: ["http://localhost:5173"],
-    methods: ["POST", "GET"],
-    credentials: true,
-  })
-);
 router.use(cookieParser());
 
 router.get("/", (req, res) => {
