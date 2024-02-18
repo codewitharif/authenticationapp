@@ -4,27 +4,8 @@ const User = require("../model/userSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authenticate = require("../middleware/authenticate");
-const connectDB = require("../db/dbConnection");
-//const cors = require("cors");
 const cookieParser = require("cookie-parser");
-// //console.log(connectDB);
 
-// router.use(express.json());
-// // router.use(
-// //   cors("http://localhost:5174", {
-// //     origin: true,
-// //     methods: ["POST", "GET"],
-// //     credentials: true,
-// //   })
-// // );
-
-// router.use(
-//   cors({
-//     origin: ["http://localhost:5173"],
-//     methods: ["POST", "GET"],
-//     credentials: true,
-//   })
-// );
 router.use(cookieParser());
 
 router.get("/", (req, res) => {
@@ -157,7 +138,5 @@ router.get("/getData/:id", async (req, res) => {
     res.status(400).json(error);
   }
 });
-
-connectDB();
 
 module.exports = router;
