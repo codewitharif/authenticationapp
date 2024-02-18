@@ -23,6 +23,10 @@ const PORT = process.env.PORT;
 
 connectDB();
 
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "server running" });
+});
+
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 });
