@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ const Register = () => {
     const { name, email, phone, work, password, cpassword } = user;
     try {
       const res = await fetch(
-        "https://authenticationapp-two.vercel.app/register",
+        "https://authenticationappbackend.vercel.app/register",
         {
           method: "POST",
           headers: {

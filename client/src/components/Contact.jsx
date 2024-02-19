@@ -15,7 +15,7 @@ const Contact = () => {
     try {
       //console.log("entering try bock");
       const res = await fetch(
-        "https://authenticationapp-two.vercel.app/contactdata",
+        "https://authenticationappbackend.vercel.app/contactdata",
         {
           method: "GET",
           headers: {
@@ -61,7 +61,7 @@ const Contact = () => {
 
       const { name, email, phone, message } = userData;
       const res = await fetch(
-        "https://authenticationapp-two.vercel.app/contact",
+        "https://authenticationappbackend.vercel.app/contact",
         {
           method: "POST",
           headers: {

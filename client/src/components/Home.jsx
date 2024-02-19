@@ -9,15 +9,18 @@ const Home = () => {
 
   const userContact = async () => {
     try {
-      const res = await fetch("https://authenticationapp-two.vercel.app/home", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://authenticationappbackend.vercel.app/home",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       console.log("my data is ", data.status);

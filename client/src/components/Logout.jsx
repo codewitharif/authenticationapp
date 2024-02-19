@@ -10,7 +10,7 @@ const Logout = () => {
 
   const token = Cookies.get("jwtoken");
   useEffect(() => {
-    fetch("https://authenticationapp-two.vercel.app/logout", {
+    fetch("https://authenticationappbackend.vercel.app/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",

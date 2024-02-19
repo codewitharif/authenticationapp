@@ -11,7 +11,7 @@ const Profile = () => {
       const token = Cookies.get("jwtoken");
       //console.log("entering try bock");
       const res = await fetch(
-        "https://authenticationapp-two.vercel.app/profile",
+        "https://authenticationappbackend.vercel.app/profile",
         {
           method: "GET",
           headers: {

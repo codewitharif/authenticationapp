@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        "https://authenticationapp-two.vercel.app/login",
+        "https://authenticationappbackend.vercel.app/login",
         {
           method: "POST",
           credentials: "include",
