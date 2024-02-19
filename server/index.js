@@ -10,7 +10,11 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["https://authenticationappz.vercel.app", "*"],
+    origin: [
+      "https://authenticationappz.vercel.app",
+      "http://localhost:5173/",
+      "*",
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   })
