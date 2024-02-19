@@ -54,7 +54,6 @@ router.post("/login", async (req, res) => {
           expires: new Date(Date.now() + 25892000000),
           httpOnly: true,
           secure: true,
-          sameSite: "Strict",
         });
         const result = {
           userLogin,
