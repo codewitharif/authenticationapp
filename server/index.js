@@ -8,8 +8,6 @@ dotenv.config({ path: "./config.env" });
 const app = express();
 app.use(cookieParser());
 
-app.use(require("./router/auth"));
-
 app.use(
   cors({
     origin: ["https://authenticationappz.vercel.app", "*"],
@@ -18,6 +16,8 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(require("./router/auth"));
+
 const PORT = process.env.PORT;
 
 connectDB();
