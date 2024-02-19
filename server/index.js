@@ -6,7 +6,6 @@ const cookieParser = require("cookie-parser");
 dotenv.config({ path: "./config.env" });
 
 const app = express();
-app.use(express.json());
 app.use(cookieParser());
 
 app.use(require("./router/auth"));
@@ -18,7 +17,7 @@ app.use(
     credentials: true,
   })
 );
-
+app.use(express.json());
 const PORT = process.env.PORT;
 
 connectDB();
