@@ -28,6 +28,7 @@ const Register = () => {
         "https://authenticationappbackend.vercel.app/register",
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
