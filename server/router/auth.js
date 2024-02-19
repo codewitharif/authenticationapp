@@ -31,7 +31,7 @@ router.post("/register", async (req, res) => {
       return;
     }
   } catch (error) {
-    //console.log(error);
+    console.log(error);
   }
 });
 
@@ -70,7 +70,7 @@ router.post("/login", async (req, res) => {
         .json({ message: "user does not exist : invalid credentials" });
     }
   } catch (error) {
-    //console.log(error);
+    console.log(error);
   }
 });
 
