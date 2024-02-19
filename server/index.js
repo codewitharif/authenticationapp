@@ -12,7 +12,7 @@ app.use(
   cors({
     origin: [
       "https://authenticationappz.vercel.app",
-      "http://localhost:5173/",
+      "http://localhost:5173",
       "*",
     ],
     methods: ["GET", "POST"],
