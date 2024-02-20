@@ -38,39 +38,45 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    //console.log(req.body);
+
     if (!email || !password) {
-      res.status(422).json("please fill all fields");
+      return res.status(422).json({ message: "Please fill all fields" });
     }
+
     const userLogin = await User.findOne({ email: email });
-    if (userLogin) {
-      const isMatch = await bcrypt.compare(password, userLogin.password);
 
-      if (isMatch) {
-        const token = await userLogin.generateAuthToken();
-        console.log("my generated token is ", token);
-
-        res.cookie("jwtoken", token, {
-          expires: new Date(Date.now() + 25892000000),
-          httpOnly: true,
-          secure: true,
-        });
-        const result = {
-          userLogin,
-          token,
-        };
-        console.log("login successfully");
-        return res.status(200).json({ status: 200, result });
-      } else {
-        res.status(401).json({ message: "invalid credentials" });
-      }
-    } else {
-      res
-        .status(401)
-        .json({ message: "user does not exist : invalid credentials" });
+    if (!userLogin) {
+      return res.status(401).json({ message: "Invalid credentials" });
     }
+
+    const isMatch = await bcrypt.compare(password, userLogin.password);
+
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const token = await userLogin.generateAuthToken();
+    console.log("Generated token:", token);
+
+    // Set the secure flag for the cookie in production over HTTPS
+    if (process.env.NODE_ENV === "production" && req.secure) {
+      res.cookie("jwtoken", token, {
+        expires: new Date(Date.now() + 25892000000), // Expiration date
+        httpOnly: true,
+        secure: true, // Set to true in production over HTTPS
+        sameSite: "None", // Required for cross-site cookies
+      });
+    } else {
+      res.cookie("jwtoken", token, {
+        expires: new Date(Date.now() + 25892000000), // Expiration date
+        httpOnly: true,
+      });
+    }
+
+    return res.status(200).json({ message: "Login successful", token });
   } catch (error) {
-    console.log(error);
+    console.error("Login error:", error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 });
 
